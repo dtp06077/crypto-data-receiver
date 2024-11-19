@@ -1,1 +1,4 @@
-spring.application.name=CryptoBidAI
+#빗썸 개인정보
+bh:
+  apikey: ${BH_API_KEY}
+  secretkey: ${BH_SECRET_KEY}
