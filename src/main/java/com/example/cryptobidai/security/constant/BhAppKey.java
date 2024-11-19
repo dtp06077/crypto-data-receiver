@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-public class BhConstant {
+public class BhAppKey {
 
     @Value("${bh.apikey}")
     private String APIKEY;
