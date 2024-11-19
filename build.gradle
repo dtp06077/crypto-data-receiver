@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 	implementation 'com.auth0:java-jwt:3.18.2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
