@@ -1,7 +1,8 @@
 package com.example.cryptobidai.websocket.handler;
 
 
-import com.example.cryptobidai.transfer.JsonRequestTransfer;
+import com.example.cryptobidai.dto.request.OrderBookRequest;
+import com.example.cryptobidai.transfer.TextToJsonTransfer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;
@@ -10,24 +11,24 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
+    private final TextToJsonTransfer textTojsonTransfer;
+
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
-        List<String> codesList = new ArrayList<>();
-        codesList.add("KRW-BTC");
-        codesList.add("KRW-ETH.3");
-        String message = JsonRequestTransfer.orderBookRequestTransfer("test example", codesList, 10);
+
+        OrderBookRequest request = new OrderBookRequest();
+        String message = textTojsonTransfer.orderBookRequestTransfer(request);
         System.out.println(message);
+
         try {
             session.sendMessage(new TextMessage(message)); // 요청 메시지를 전송
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+            System.err.println("error message: " + e.getMessage());
         }
     }
 
