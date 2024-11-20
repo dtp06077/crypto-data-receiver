@@ -10,7 +10,7 @@ public class JsonRequestTransfer {
 
     public static JSONArray jsonArray;
 
-    public static String orderBookRequestTransfer(String ticketName, List codesList, int level) {
+    public static String orderBookRequestTransfer(String ticketName, List<String> codesList, int level) {
         // 첫 번째 객체 생성
         JSONObject ticketObject = new JSONObject();
         ticketObject.put("ticket", ticketName);
@@ -22,8 +22,6 @@ public class JsonRequestTransfer {
         typeObject.put("codes", new JSONArray(codesList));
         
         typeObject.put("level", level); // 기본값
-        typeObject.put("isOnlySanpshot", false); // 기본값
-        typeObject.put("isOnlyRealtime", true); // 기본값
 
         // 세 번째 객체 생성
         JSONObject formatObject = new JSONObject();
