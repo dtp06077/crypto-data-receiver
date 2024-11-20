@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TextToJsonTransfer {
 
-    private JSONArray jsonArray;
-
+    //코인 호가 요청 json 변환 메서드
     public String orderBookRequestTransfer(OrderBookRequest request) {
 
         // ticket field 생성
@@ -22,13 +21,13 @@ public class TextToJsonTransfer {
 
         typeObject.put("codes", new JSONArray(request.getCodes()));
         
-        typeObject.put("level", request.getLevel()); // 기본값
+        typeObject.put("level", request.getLevel());
 
         // format field 생성
         JSONObject formatObject = new JSONObject();
         formatObject.put("format", request.getFormat());
 
-        jsonArray = new JSONArray();
+        JSONArray jsonArray = new JSONArray();
         jsonArray.put(ticketObject);
         jsonArray.put(typeObject);
         jsonArray.put(formatObject);

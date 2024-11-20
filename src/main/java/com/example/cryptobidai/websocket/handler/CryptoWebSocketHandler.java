@@ -2,6 +2,7 @@ package com.example.cryptobidai.websocket.handler;
 
 
 import com.example.cryptobidai.dto.request.OrderBookRequest;
+import com.example.cryptobidai.transfer.BinaryToTextTransfer;
 import com.example.cryptobidai.transfer.TextToJsonTransfer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
     private final TextToJsonTransfer textTojsonTransfer;
+    private final BinaryToTextTransfer binaryToTextTransfer;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
@@ -34,7 +36,9 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
-        System.out.println("Received binary message: " + message.getPayload());
+        //BinaryMessage를 텍스트로 변환
+        String textMessage = binaryToTextTransfer.orderBookResponseTransfer(message);
+        System.out.println("Received message: " + textMessage);
     }
 
     @Override
