@@ -2,3 +2,7 @@
 bh:
   apikey: ${BH_API_KEY}
   secretkey: ${BH_SECRET_KEY}
+
+#카프카 브로커 주소
+kafka:
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
