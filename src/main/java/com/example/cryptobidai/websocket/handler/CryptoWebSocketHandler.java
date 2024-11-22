@@ -2,6 +2,8 @@ package com.example.cryptobidai.websocket.handler;
 
 
 import com.example.cryptobidai.dto.request.OrderBookRequest;
+import com.example.cryptobidai.dto.request.Request;
+import com.example.cryptobidai.dto.request.TradeRequest;
 import com.example.cryptobidai.kafka.KafkaProducerService;
 import com.example.cryptobidai.transfer.BinaryToTextTransfer;
 import com.example.cryptobidai.transfer.TextToJsonTransfer;
@@ -25,8 +27,11 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
 
-        OrderBookRequest request = new OrderBookRequest();
-        String message = textTojsonTransfer.orderBookRequestTransfer(request);
+        String[] codes = new String[]{"KRW-BTC"};
+
+        Request tradeRequest = new TradeRequest("test example", "trade", codes, "DEFAULT");
+        Request orderBookRequest = new OrderBookRequest("test example", "orderbook", codes, "DEFAULT", 1);
+        String message = textTojsonTransfer.orderTradeRequestTransfer(orderBookRequest, tradeRequest);
         System.out.println(message);
 
         try {
@@ -40,8 +45,8 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         //BinaryMessage를 텍스트로 변환
         String textMessage = binaryToTextTransfer.orderBookResponseTransfer(message);
-        kafkaProducerService.sendToProducer("test", textMessage);
-//        System.out.println("Received message: " + textMessage);
+//        kafkaProducerService.sendToProducer("test", textMessage);
+        System.out.println("Received message: " + textMessage);
     }
 
     @Override
