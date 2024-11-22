@@ -1,15 +1,16 @@
 package com.example.cryptobidai.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-@Data
-@AllArgsConstructor
 public class OrderBookRequest extends Request {
 
     double level;
+
+    public OrderBookRequest(String ticket, String type, String[] codes, String format, double level) {
+        super(ticket, type, codes, format);
+        this.level = level;
+    }
 
     @Override
     public JSONObject typeFieldToJson() {

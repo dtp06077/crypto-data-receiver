@@ -1,11 +1,10 @@
 package com.example.cryptobidai.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@Data
-@AllArgsConstructor
 public class TradeRequest extends Request {
 
+    public TradeRequest(String ticket, String type, String[] codes, String format) {
+        super(ticket, type, codes, format); // 부모 클래스의 생성자 호출
+    }
 }
 

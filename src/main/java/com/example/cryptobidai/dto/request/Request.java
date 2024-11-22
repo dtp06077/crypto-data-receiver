@@ -1,16 +1,16 @@
 package com.example.cryptobidai.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.List;
-
 @Data
+@AllArgsConstructor
 public class Request {
     String ticket;
     String type;
-    List<String> codes;
+    String[] codes;
     String format;
 
     public JSONObject ticketFieldToJson() {
