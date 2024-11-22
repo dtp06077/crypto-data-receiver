@@ -1,4 +1,4 @@
-package com.example.cryptobidai.security.constant;
+package com.example.cryptodatareceiver.security.constant;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

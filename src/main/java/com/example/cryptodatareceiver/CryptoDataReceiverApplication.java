@@ -1,13 +1,13 @@
-package com.example.cryptobidai;
+package com.example.cryptodatareceiver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CryptoBidAiApplication {
+public class CryptoDataReceiverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CryptoBidAiApplication.class, args);
+		SpringApplication.run(CryptoDataReceiverApplication.class, args);
 	}
 
 }

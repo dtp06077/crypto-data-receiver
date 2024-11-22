@@ -1,12 +1,12 @@
-package com.example.cryptobidai.websocket.handler;
+package com.example.cryptodatareceiver.websocket.handler;
 
 
-import com.example.cryptobidai.dto.request.OrderBookRequest;
-import com.example.cryptobidai.dto.request.Request;
-import com.example.cryptobidai.dto.request.TradeRequest;
-import com.example.cryptobidai.kafka.KafkaProducerService;
-import com.example.cryptobidai.transfer.BinaryToTextTransfer;
-import com.example.cryptobidai.transfer.TextToJsonTransfer;
+import com.example.cryptodatareceiver.dto.request.OrderBookRequest;
+import com.example.cryptodatareceiver.dto.request.Request;
+import com.example.cryptodatareceiver.dto.request.TradeRequest;
+import com.example.cryptodatareceiver.kafka.KafkaProducerService;
+import com.example.cryptodatareceiver.transfer.BinaryToTextTransfer;
+import com.example.cryptodatareceiver.transfer.TextToJsonTransfer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;

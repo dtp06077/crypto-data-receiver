@@ -1,7 +1,7 @@
-package com.example.cryptobidai.websocket.config;
+package com.example.cryptodatareceiver.websocket.config;
 
-import com.example.cryptobidai.constant.BhConstant;
-import com.example.cryptobidai.websocket.handler.CryptoWebSocketHandler;
+import com.example.cryptodatareceiver.constant.BhConstant;
+import com.example.cryptodatareceiver.websocket.handler.CryptoWebSocketHandler;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

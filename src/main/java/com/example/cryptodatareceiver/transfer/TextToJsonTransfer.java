@@ -1,6 +1,6 @@
-package com.example.cryptobidai.transfer;
+package com.example.cryptodatareceiver.transfer;
 
-import com.example.cryptobidai.dto.request.Request;
+import com.example.cryptodatareceiver.dto.request.Request;
 import org.json.JSONArray;
 import org.springframework.stereotype.Component;
 

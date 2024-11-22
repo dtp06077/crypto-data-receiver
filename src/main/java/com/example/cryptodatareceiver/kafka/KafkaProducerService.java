@@ -1,4 +1,4 @@
-package com.example.cryptobidai.kafka;
+package com.example.cryptodatareceiver.kafka;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;

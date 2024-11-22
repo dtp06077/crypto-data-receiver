@@ -1,4 +1,4 @@
-package com.example.cryptobidai.transfer;
+package com.example.cryptodatareceiver.transfer;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;

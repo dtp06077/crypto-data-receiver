@@ -1,4 +1,4 @@
-package com.example.cryptobidai.dto.request;
+package com.example.cryptodatareceiver.dto.request;
 
 
 public class TradeRequest extends Request {

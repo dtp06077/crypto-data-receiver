@@ -1,4 +1,4 @@
-package com.example.cryptobidai.constant;
+package com.example.cryptodatareceiver.constant;
 
 public interface BhConstant {
 

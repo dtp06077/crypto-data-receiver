@@ -1,8 +1,8 @@
-package com.example.cryptobidai.security.jwt;
+package com.example.cryptodatareceiver.security.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.example.cryptobidai.security.constant.BhAppKey;
+import com.example.cryptodatareceiver.security.constant.BhAppKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
