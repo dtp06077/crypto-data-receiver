@@ -11,6 +11,7 @@ public class OrderBookRequest extends Request {
 
     double level;
 
+    @Override
     public JSONObject typeFieldToJson() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("type", this.type);
