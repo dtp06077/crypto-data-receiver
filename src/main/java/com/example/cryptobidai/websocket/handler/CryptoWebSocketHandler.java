@@ -31,8 +31,7 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
         Request tradeRequest = new TradeRequest("test example", "trade", codes, "DEFAULT");
         Request orderBookRequest = new OrderBookRequest("test example", "orderbook", codes, "DEFAULT", 1);
-        String message = textTojsonTransfer.orderTradeRequestTransfer(orderBookRequest, tradeRequest);
-        System.out.println(message);
+        String message = textTojsonTransfer.requestTransfer(orderBookRequest, tradeRequest);
 
         try {
             session.sendMessage(new TextMessage(message)); // 요청 메시지를 전송
