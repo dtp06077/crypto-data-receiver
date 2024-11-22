@@ -1,31 +1,22 @@
 package com.example.cryptobidai.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @Data
-public class OrderBookRequest extends BhRequest {
+@AllArgsConstructor
+public class OrderBookRequest extends Request {
 
     double level;
-    boolean isOnlySnapshot;
-    boolean isOnlyRealtime;
 
-    public OrderBookRequest() {
-        //ticket field
-        this.ticket = "test example";
+    public JSONObject typeFieldToJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("type", this.type);
+        jsonObject.put("codes", new JSONArray(this.codes));
+        jsonObject.put("level", this.level);
 
-        //type field
-        this.type = "orderbook";
-
-        this.codes = new ArrayList<>();
-        codes.add("KRW-BTC");
-
-        this.level = 1;
-        this.isOnlySnapshot = false;
-        this.isOnlyRealtime = false;
-
-        //format field
-        this.format = "DEFAULT";
+        return jsonObject;
     }
 }
