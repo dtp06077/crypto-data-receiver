@@ -1,7 +1,5 @@
 package com.example.cryptodatareceiver.websocket.handler;
 
-
-import com.example.cryptodatareceiver.dto.request.OrderBookRequest;
 import com.example.cryptodatareceiver.dto.request.Request;
 import com.example.cryptodatareceiver.dto.request.TradeRequest;
 import com.example.cryptodatareceiver.kafka.KafkaProducerService;
@@ -29,9 +27,9 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
         String[] codes = new String[]{"KRW-BTC"};
 
-        Request tradeRequest = new TradeRequest("test example", "trade", codes, "DEFAULT");
-        Request orderBookRequest = new OrderBookRequest("test example", "orderbook", codes, "DEFAULT", 1);
-        String message = textTojsonTransfer.requestTransfer(orderBookRequest, tradeRequest);
+        Request tradeRequest = new TradeRequest("test example", "ticker", codes, "DEFAULT");
+
+        String message = textTojsonTransfer.requestTransfer(tradeRequest);
 
         try {
             session.sendMessage(new TextMessage(message)); // 요청 메시지를 전송
