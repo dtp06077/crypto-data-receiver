@@ -1,6 +1,6 @@
 package com.example.cryptodatareceiver.websocket.config;
 
-import com.example.cryptodatareceiver.constant.BhConstant;
+import com.example.cryptodatareceiver.constant.Constant;
 import com.example.cryptodatareceiver.websocket.handler.CryptoWebSocketHandler;
 
 import org.springframework.context.annotation.Bean;
@@ -33,13 +33,14 @@ public class WebSocketConfig implements WebSocketConfigurer {
         return new StandardWebSocketClient();
     }
 
+
     // WebSocket 연결을 위한 메서드
     @Bean
     public WebSocketConnectionManager connectionManager() {
         WebSocketConnectionManager connectionManager = new WebSocketConnectionManager(
                 webSocketClient(),
                 cryptoWebSocketHandler,
-                BhConstant.WS_PUBLIC_URL // 빗썸 url
+                Constant.WS_PUBLIC_URL // 빗썸 url
         );
         connectionManager.start(); // 연결 시작
         return connectionManager;
