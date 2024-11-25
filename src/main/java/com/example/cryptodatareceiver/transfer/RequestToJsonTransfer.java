@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class RequestToJsonTransfer {
 
     //요청 json 변환 메서드
-    public String requestTransfer(JsonRequestDto... requests) {
+    public String transfer(JsonRequestDto... requests) {
 
         JSONArray jsonArray = new JSONArray();
 
