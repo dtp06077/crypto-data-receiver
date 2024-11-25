@@ -24,8 +24,8 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(cryptoWebSocketHandler, "/client")
-                .setAllowedOrigins("*"); //임시로 모든 출처에서의 연결 허용
+        registry.addHandler(cryptoWebSocketHandler, "/receiver")
+                .setAllowedOrigins("http://localhost:5000"); //임시로 모든 출처에서의 연결 허용
     }
 
     @Bean
