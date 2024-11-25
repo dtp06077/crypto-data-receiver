@@ -1,7 +1,7 @@
 package com.example.cryptodatareceiver.websocket.handler;
 
-import com.example.cryptodatareceiver.dto.request.Request;
-import com.example.cryptodatareceiver.dto.request.TradeRequest;
+import com.example.cryptodatareceiver.dto.request.json.JsonRequestDto;
+import com.example.cryptodatareceiver.dto.request.json.JsonTradeRequestDto;
 import com.example.cryptodatareceiver.kafka.KafkaProducerService;
 import com.example.cryptodatareceiver.transfer.BinaryToTextTransfer;
 import com.example.cryptodatareceiver.transfer.TextToJsonTransfer;
@@ -27,7 +27,7 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
         String[] codes = new String[]{"KRW-BTC"};
 
-        Request tradeRequest = new TradeRequest("test example", "ticker", codes, "DEFAULT");
+        JsonRequestDto tradeRequest = new JsonTradeRequestDto("test example", "ticker", codes, "DEFAULT");
 
         String message = textTojsonTransfer.requestTransfer(tradeRequest);
 

@@ -1,4 +1,4 @@
-package com.example.cryptodatareceiver.dto.request;
+package com.example.cryptodatareceiver.dto.request.json;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 @Data
 @AllArgsConstructor
-public class Request {
+public class JsonRequestDto {
     String ticket;
     String type;
     String[] codes;

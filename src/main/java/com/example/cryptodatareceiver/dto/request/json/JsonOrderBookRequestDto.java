@@ -1,13 +1,13 @@
-package com.example.cryptodatareceiver.dto.request;
+package com.example.cryptodatareceiver.dto.request.json;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class OrderBookRequest extends Request {
+public class JsonOrderBookRequestDto extends JsonRequestDto {
 
     double level;
 
-    public OrderBookRequest(String ticket, String type, String[] codes, String format, double level) {
+    public JsonOrderBookRequestDto(String ticket, String type, String[] codes, String format, double level) {
         super(ticket, type, codes, format);
         this.level = level;
     }
