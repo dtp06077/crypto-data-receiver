@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 public class BinaryToJsonTransfer {
 
     //코인 호가 응답 text 변환 메서드
-    public String orderBookResponseTransfer(BinaryMessage message) {
+    public String transfer(BinaryMessage message) {
         ByteBuffer byteBuffer = message.getPayload();
         byte[] byteArray = new byte[byteBuffer.remaining()];
         byteBuffer.get(byteArray);

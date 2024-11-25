@@ -29,7 +29,7 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
         JsonRequestDto tradeRequest = new JsonTradeRequestDto("test example", "ticker", codes, "DEFAULT");
 
-        String message = textTojsonTransfer.requestTransfer(tradeRequest);
+        String message = textTojsonTransfer.transfer(tradeRequest);
 
         try {
             session.sendMessage(new TextMessage(message)); // 요청 메시지를 전송
@@ -41,7 +41,7 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         //BinaryMessage를 텍스트로 변환
-        String textMessage = binaryToTextTransfer.orderBookResponseTransfer(message);
+        String textMessage = binaryToTextTransfer.transfer(message);
 //        kafkaProducerService.sendToProducer("test", textMessage);
         System.out.println("Received message: " + textMessage);
     }
