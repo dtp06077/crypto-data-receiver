@@ -3,8 +3,8 @@ package com.example.cryptodatareceiver.websocket.handler;
 import com.example.cryptodatareceiver.dto.request.json.JsonRequestDto;
 import com.example.cryptodatareceiver.dto.request.json.JsonTradeRequestDto;
 import com.example.cryptodatareceiver.kafka.KafkaProducerService;
-import com.example.cryptodatareceiver.transfer.BinaryToTextTransfer;
-import com.example.cryptodatareceiver.transfer.TextToJsonTransfer;
+import com.example.cryptodatareceiver.transfer.BinaryToJsonTransfer;
+import com.example.cryptodatareceiver.transfer.RequestToJsonTransfer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.BinaryMessage;
@@ -18,8 +18,8 @@ import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 @RequiredArgsConstructor
 public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
-    private final TextToJsonTransfer textTojsonTransfer;
-    private final BinaryToTextTransfer binaryToTextTransfer;
+    private final RequestToJsonTransfer textTojsonTransfer;
+    private final BinaryToJsonTransfer binaryToTextTransfer;
     private final KafkaProducerService kafkaProducerService;
 
     @Override

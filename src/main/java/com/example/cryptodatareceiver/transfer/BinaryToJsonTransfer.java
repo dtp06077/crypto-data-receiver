@@ -6,7 +6,7 @@ import org.springframework.web.socket.BinaryMessage;
 import java.nio.ByteBuffer;
 
 @Component
-public class BinaryToTextTransfer {
+public class BinaryToJsonTransfer {
 
     //코인 호가 응답 text 변환 메서드
     public String orderBookResponseTransfer(BinaryMessage message) {
