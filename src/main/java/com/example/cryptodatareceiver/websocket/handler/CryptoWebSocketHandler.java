@@ -3,6 +3,7 @@ package com.example.cryptodatareceiver.websocket.handler;
 import com.example.cryptodatareceiver.dto.request.json.JsonRequestDto;
 import com.example.cryptodatareceiver.dto.request.json.JsonTradeRequestDto;
 import com.example.cryptodatareceiver.kafka.KafkaProducerService;
+import com.example.cryptodatareceiver.rest.service.TickerService;
 import com.example.cryptodatareceiver.transfer.BinaryToJsonTransfer;
 import com.example.cryptodatareceiver.transfer.RequestToJsonTransfer;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +19,10 @@ import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 @RequiredArgsConstructor
 public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
-    private final RequestToJsonTransfer textTojsonTransfer;
-    private final BinaryToJsonTransfer binaryToTextTransfer;
+    private final RequestToJsonTransfer requestToJsonTransfer;
+    private final BinaryToJsonTransfer binaryToJsonTransfer;
     private final KafkaProducerService kafkaProducerService;
+    private final TickerService tickerService;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
@@ -29,7 +31,7 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
 
         JsonRequestDto tradeRequest = new JsonTradeRequestDto("test example", "ticker", codes, "DEFAULT");
 
-        String message = textTojsonTransfer.transfer(tradeRequest);
+        String message = requestToJsonTransfer.transfer(tradeRequest);
 
         try {
             session.sendMessage(new TextMessage(message)); // 요청 메시지를 전송
@@ -41,9 +43,10 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         //BinaryMessage를 텍스트로 변환
-        String textMessage = binaryToTextTransfer.transfer(message);
+        String textMessage = binaryToJsonTransfer.transfer(message);
+        tickerService.saveTickerRequest(textMessage).getBody();
+//        System.out.println("Received message: " + textMessage);
 //        kafkaProducerService.sendToProducer("test", textMessage);
-        System.out.println("Received message: " + textMessage);
     }
 
     @Override

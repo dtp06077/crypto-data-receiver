@@ -1,11 +1,14 @@
 package com.example.cryptodatareceiver.dto.request.object;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+//필요한 필드 외 무시
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SaveTickerRequestDto {
 
     @JsonProperty("opening_price")
@@ -24,10 +27,10 @@ public class SaveTickerRequestDto {
     private double prevClosingPrice;
 
     @JsonProperty("highest_52_week_price")
-    private double highest52WeekPrice;
+    private double highest_52_WeekPrice;
 
     @JsonProperty("lowest_52_week_price")
-    private double lowest52WeekPrice;
+    private double lowest_52_WeekPrice;
 
     @JsonProperty("trade_volume")
     private double tradeVolume;
