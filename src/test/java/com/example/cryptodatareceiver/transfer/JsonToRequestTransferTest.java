@@ -29,8 +29,8 @@ public class JsonToRequestTransferTest {
         assertEquals(132200000, dto.getLowPrice());
         assertEquals(135468000, dto.getTradePrice());
         assertEquals(134095000, dto.getPrevClosingPrice());
-        assertEquals(138880000, dto.getHighest52WeekPrice());
-        assertEquals(49425000, dto.getLowest52WeekPrice());
+        assertEquals(138880000, dto.getHighest_52_WeekPrice());
+        assertEquals(49425000, dto.getLowest_52_WeekPrice());
         assertEquals(0.00246816, dto.getTradeVolume());
         assertEquals(867.29681046, dto.getAccTradeVolume());
         assertEquals(116795647197.11964, dto.getAccTradePrice());

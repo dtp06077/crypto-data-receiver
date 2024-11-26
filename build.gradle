@@ -24,7 +24,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.kafka:spring-kafka'
+	implementation fileTree(dir: 'libs', includes: ['*.jar'])
+
 	implementation 'org.json:json:20240303'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

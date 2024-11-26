@@ -44,9 +44,9 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         //BinaryMessage를 텍스트로 변환
         String textMessage = binaryToJsonTransfer.transfer(message);
-        System.out.println(tickerService.saveTickerRequest(textMessage).getBody());
+//        tickerService.saveTickerRequest(textMessage);
 //        System.out.println("Received message: " + textMessage);
-//        kafkaProducerService.sendToProducer("test", textMessage);
+        kafkaProducerService.sendToProducer("crypto_topic_dev", textMessage);
     }
 
     @Override
