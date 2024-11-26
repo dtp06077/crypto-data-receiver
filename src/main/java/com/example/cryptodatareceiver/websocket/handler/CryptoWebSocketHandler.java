@@ -3,7 +3,6 @@ package com.example.cryptodatareceiver.websocket.handler;
 import com.example.cryptodatareceiver.dto.request.json.JsonRequestDto;
 import com.example.cryptodatareceiver.dto.request.json.JsonTradeRequestDto;
 import com.example.cryptodatareceiver.kafka.KafkaProducerService;
-import com.example.cryptodatareceiver.rest.service.TickerService;
 import com.example.cryptodatareceiver.transfer.BinaryToJsonTransfer;
 import com.example.cryptodatareceiver.transfer.RequestToJsonTransfer;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,6 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     private final RequestToJsonTransfer requestToJsonTransfer;
     private final BinaryToJsonTransfer binaryToJsonTransfer;
     private final KafkaProducerService kafkaProducerService;
-    private final TickerService tickerService;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
@@ -44,8 +42,6 @@ public class CryptoWebSocketHandler extends BinaryWebSocketHandler {
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         //BinaryMessage를 텍스트로 변환
         String textMessage = binaryToJsonTransfer.transfer(message);
-//        tickerService.saveTickerRequest(textMessage);
-//        System.out.println("Received message: " + textMessage);
         kafkaProducerService.sendToProducer("crypto_topic_dev", textMessage);
     }
 
