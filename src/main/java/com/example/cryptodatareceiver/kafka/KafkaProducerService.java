@@ -28,6 +28,7 @@ public class KafkaProducerService {
             if (exception != null) {
                 System.err.println("Error while producing message: " + exception.getMessage());
             } else {
+                //성공시 메시지
                 System.out.printf("Success with offset %d%n", metadata.offset());
             }
         });
