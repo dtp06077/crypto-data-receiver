@@ -35,14 +35,13 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 
     // WebSocket 연결을 위한 메서드
-//    @Bean
-//    public WebSocketConnectionManager connectionManager() {
-//        WebSocketConnectionManager connectionManager = new WebSocketConnectionManager(
-//                webSocketClient(),
-//                cryptoWebSocketHandler,
-//                Constant.WS_PUBLIC_URL // 빗썸 url
-//        );
-//        connectionManager.start(); // 연결 시작
-//        return connectionManager;
-//    }
+    public WebSocketConnectionManager connectionManager() {
+        WebSocketConnectionManager connectionManager = new WebSocketConnectionManager(
+                webSocketClient(),
+                cryptoWebSocketHandler,
+                Constant.WS_PUBLIC_URL // 빗썸 url
+        );
+        connectionManager.start(); // 연결 시작
+        return connectionManager;
+    }
 }
