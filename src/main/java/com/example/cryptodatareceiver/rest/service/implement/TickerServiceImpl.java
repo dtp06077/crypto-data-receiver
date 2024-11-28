@@ -40,6 +40,13 @@ public class TickerServiceImpl implements TickerService {
         // HttpEntity 객체 생성
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        return restTemplate.getForObject(url, String.class, entity);
+        String jsonResponse = restTemplate.getForObject(url, String.class, entity);
+
+        //리스트에서 요소값만 반환
+        if (jsonResponse != null && jsonResponse.startsWith("[") && jsonResponse.endsWith("]")) {
+            jsonResponse = jsonResponse.substring(1, jsonResponse.length() - 1);
+        }
+
+        return jsonResponse;
     }
 }
